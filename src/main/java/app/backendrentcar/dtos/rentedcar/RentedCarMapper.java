@@ -8,6 +8,7 @@ import org.mapstruct.factory.Mappers;
 public interface RentedCarMapper {
     RentedCarMapper INSTANCE = Mappers.getMapper(RentedCarMapper.class);
 
-    RentedCar toDto(RentedCar rentedCar);
+    RentedCarDto toDto(RentedCar rentedCar);
     RentedCar toEntity(RentedCarDto rentedCarDto);
+    RentedCar saveDtoToEntity(RentedCarToSaveDto rentedCarToSaveDto);
 }

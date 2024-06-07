@@ -3,6 +3,8 @@ package app.backendrentcar.models;
 import jakarta.persistence.*;
 import lombok.*;
 
+import java.util.List;
+
 @Entity
 @Table(name = "users")
 @AllArgsConstructor
@@ -24,5 +26,5 @@ public class User {
     private int telefono;
 
     @OneToMany(mappedBy = "user")
-    private RentedCar rentas;
+    private List<RentedCar> rentas;
 }

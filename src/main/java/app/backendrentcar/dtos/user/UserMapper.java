@@ -9,6 +9,6 @@ public interface UserMapper {
     UserMapper INSTANCE = Mappers.getMapper(UserMapper.class);
 
     User toEntity(UserDto userDto);
-    User toDto(User user);
+    UserDto toDto(User user);
     User saveDtoToEntity(UserToSaveDto userToSaveDto);
 }

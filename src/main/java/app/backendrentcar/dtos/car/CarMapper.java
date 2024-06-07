@@ -8,6 +8,8 @@ import org.mapstruct.factory.Mappers;
 public interface CarMapper {
     CarMapper INSTANCE = Mappers.getMapper(CarMapper.class);
 
-    Car toDto(Car car);
+    CarDto toDto(Car car);
     Car toEntity(CarDto carDto);
+
+    Car saveDtoToEntity(CarToSaveDto carToSaveDto);
 }
