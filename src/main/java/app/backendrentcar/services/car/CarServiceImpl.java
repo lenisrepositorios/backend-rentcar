@@ -8,13 +8,14 @@ import app.backendrentcar.repositories.CarRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @Service
 public class CarServiceImpl implements CarService{
 
     private final CarRepository carRepository;
-    private CarMapper carMapper;
+    private final CarMapper carMapper;
 
     @Autowired
     public CarServiceImpl(CarRepository carRepository, CarMapper carMapper){
@@ -32,6 +33,13 @@ public class CarServiceImpl implements CarService{
     @Override
     public List<CarDto> getAllCar(){
         List<Car> cars = carRepository.findAll();
+        return cars.stream()
+                .map(car -> carMapper.toDto(car)).toList();
+    }
+
+    @Override
+    public List<CarDto> findAvailableCars(String ciudad, LocalDateTime fechaInicio, LocalDateTime fechaFinal) {
+        List<Car> cars = carRepository.findAvailableCars(ciudad, fechaInicio, fechaFinal);
         return cars.stream()
                 .map(car -> carMapper.toDto(car)).toList();
     }

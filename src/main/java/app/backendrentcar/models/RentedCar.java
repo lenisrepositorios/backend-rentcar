@@ -17,16 +17,18 @@ public class RentedCar {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    @ManyToOne
-    @JoinColumn(name = "idUsuario")
-    private User usuario;
+    private String nombre;
+    private String apellido;
+
+    @Column(unique = true)
+    private int cedula;
+
+    private String direccion;
+    private int telefono;
+    private LocalDateTime fechaInicio;
+    private LocalDateTime fechaFinal;
 
     @ManyToOne
     @JoinColumn(name = "idCarro")
     private Car carro;
-
-    private LocalDateTime fechaInicio;
-    private LocalDateTime fechaFinal;
-    private float precio;
-    private String ciudad;
 }

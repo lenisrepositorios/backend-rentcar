@@ -6,6 +6,6 @@ public record CarDto(Long id,
                      float kilometraje,
                      float velocidadMaxima,
                      String locacion,
-                     String color,
+                     String imagen,
                      float precio) {
 }

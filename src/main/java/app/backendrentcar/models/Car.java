@@ -23,10 +23,10 @@ public class Car {
     private float kilometraje;
     private float velocidadMaxima;
     private String locacion;
-    private String color;
+    private String imagen;
     private float precio;
 
-    @OneToMany(mappedBy = "car")
+    @OneToMany(mappedBy = "carro")
     private List<RentedCar> rentas;
 
 }

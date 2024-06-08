@@ -2,15 +2,14 @@ package app.backendrentcar.controllers;
 
 import app.backendrentcar.dtos.car.CarDto;
 import app.backendrentcar.dtos.car.CarToSaveDto;
-import app.backendrentcar.dtos.user.UserDto;
-import app.backendrentcar.dtos.user.UserToSaveDto;
 import app.backendrentcar.services.car.CarService;
-import app.backendrentcar.services.user.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.format.annotation.DateTimeFormat;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
+import java.time.LocalDateTime;
 import java.util.List;
 
 @RestController
@@ -34,5 +33,13 @@ public class CarController {
     public ResponseEntity<List<CarDto>> getAllCar(){
         List<CarDto> carDtoList = carService.getAllCar();
         return ResponseEntity.ok(carDtoList);
+    }
+
+    @GetMapping("/available")
+    public List<CarDto> getAvailableCars(
+            @RequestParam String ciudad,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime fechaInicio,
+            @RequestParam @DateTimeFormat(iso = DateTimeFormat.ISO.DATE_TIME) LocalDateTime fechaFinal) {
+        return carService.findAvailableCars(ciudad, fechaInicio, fechaFinal);
     }
 }
