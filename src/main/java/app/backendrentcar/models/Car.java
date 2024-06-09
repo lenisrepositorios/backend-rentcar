@@ -23,6 +23,7 @@ public class Car {
     private float kilometraje;
     private float velocidadMaxima;
     private String locacion;
+    @Column(length = 1000)
     private String imagen;
     private float precio;
 

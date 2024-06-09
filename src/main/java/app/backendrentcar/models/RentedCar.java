@@ -19,8 +19,6 @@ public class RentedCar {
 
     private String nombre;
     private String apellido;
-
-    @Column(unique = true)
     private int cedula;
 
     private String direccion;
