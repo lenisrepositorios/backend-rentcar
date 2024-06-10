@@ -19,10 +19,10 @@ public class RentedCar {
 
     private String nombre;
     private String apellido;
-    private int cedula;
+    private Long cedula;
 
     private String direccion;
-    private int telefono;
+    private Long telefono;
     private LocalDateTime fechaInicio;
     private LocalDateTime fechaFinal;
 
